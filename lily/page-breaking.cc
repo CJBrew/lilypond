@@ -1177,6 +1177,8 @@ Page_breaking::min_page_count (vsize configuration, vsize first_page_num)
           /* don't increase the page count if the last page had only one system */
           && cur_rod_height > cached_line_details_.back ().full_height ())
         ret++;
+      bool doAssert = ret <= cached_line_details_.size();
+      printf("it is last: ret= %d, cld.size = %d, ret = %s\n", ret, cached_line_details_.size(), doAssert?"true":"false");
       assert (ret <= cached_line_details_.size ());
     }
 
